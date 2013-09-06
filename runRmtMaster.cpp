@@ -1,6 +1,7 @@
 #include <rmtfit.h>
 
 #include <Data.h>
+#include <Job.h>
 #include <Output.h>
 #include <Params.h>
 #include <Workboard.h>

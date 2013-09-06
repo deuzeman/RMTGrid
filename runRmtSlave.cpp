@@ -1,5 +1,10 @@
 #include <rmtfit.h>
 
+#include <Data.h>
+#include <Job.h>
+#include <RmtEngine.h>
+#include <Workload.h>
+
 void runRmtSlave()
 {
   Data data(); // For slave mode, it's just a place to stash the digests
@@ -19,6 +24,4 @@ void runRmtSlave()
     delete job;
     job = Workboard::receiveJob(); // Get the next job, receive 0 on jobs finished.
   }
-  
-  output.close();
 }
