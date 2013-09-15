@@ -6,9 +6,9 @@
 #include <Params.h>
 #include <Workboard.h>
 
-void runRmtMaster(char const *inputFileName)
+void runRmtMaster(char const *inputFilename)
 {
-  Params par(inputFileName); // Contains parsing logic 
+  Params par(inputFilename); // Contains parsing logic 
   
   Data data(par.getDataFileNameStub()); // Parses the data files and produces the different digests. 
   

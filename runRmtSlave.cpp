@@ -1,9 +1,10 @@
 #include <rmtfit.h>
 
-#include <Data.h>
-#include <Job.h>
-#include <RmtEngine.h>
-#include <Workload.h>
+#include <Data/Data.h>
+#include <Job/Job.h>
+#include <Output/Output.h>
+#include <RmtEngine/RmtEngine.h>
+#include <Workboard/Workboard.h>
 
 void runRmtSlave()
 {
@@ -20,8 +21,7 @@ void runRmtSlave()
     engine.initialize(job); // Set up the RMT ensemble to fit the job meta data.
     engine.generateEnsemble(); // Generate the RMT data.
     job.parseEnsemble(engine.ensemble()); // Calculate the different chi values and overall results
-    Workboard::reportJob(job); // Static function: call the code back.
-    delete job;
+    Workboard::reportJob(job); // Static function: send the results back and delete the old job
     job = Workboard::receiveJob(); // Get the next job, receive 0 on jobs finished.
   }
 }
