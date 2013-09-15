@@ -14,9 +14,7 @@ void runRmtMaster(char const *inputFilename)
   
   data.broadcastDigests(); // They are immutable and this reduces the amount of data sent for each RMT sample.
 
-  Output output(par.getRequestedMetrics(), data.getMaximumCharge(), data.getMaximumEigenvalue()); // Set up the output file handles 
-  
-  Workboard workboard(par.getRequestedMetrics(), par.getRequestedParameters()); /* Maintains a list of all running jobs */
+  Workboard workboard(par); /* Maintains a list of all running jobs */
   
   workboard.clearPreviouslyFinishedJobs(&output); /* Remove completed jobs from the list. NOTE Also denote target precision in output, so we can check that too! */
   
